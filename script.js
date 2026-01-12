@@ -39,6 +39,21 @@ function initThree() {
 
     const baseGeometry = new THREE.IcosahedronGeometry(2, 1);
 
+    // Helper: Create Text Texture
+    function createTextTexture(text, color = '#d4af37') {
+        const canvas = document.createElement('canvas');
+        canvas.width = 512;
+        canvas.height = 512;
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = color;
+        ctx.font = 'bold 80px "Cormorant Garamond", serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(text, 256, 256);
+        const texture = new THREE.CanvasTexture(canvas);
+        return texture;
+    }
+
     // Load Images
     const textureLoader = new THREE.TextureLoader();
     const imageUrls = [
@@ -55,19 +70,25 @@ function initThree() {
         'images/Wardrobe/IMG_5977.JPG',
         'images/Wardrobe/IMG_5979.JPG',
         'images/Pooja/IMG_5993.JPG',
-        'images/bar%20units/IMG_5999.JPG'
+        'images/bar%20units/IMG_5999.JPG',
+        'images/logo.jpg'
     ];
 
-    const globeMaterials = imageUrls.map(url => {
+    // Create Text Textures
+    const textKeywords = ['Luxury', 'Design', 'Elegant', 'Bespoke', 'Style', 'Art', 'Sam\'s'];
+    const textTextures = textKeywords.map(word => createTextTexture(word));
+
+    // Combine all materials for the globe
+    const allTextures = [...imageUrls.map(url => textureLoader.load(url)), ...textTextures];
+
+    // We need MeshBasicMaterials for the globe faces
+    const globeMaterials = allTextures.map(tex => {
         return new THREE.MeshBasicMaterial({
-            map: textureLoader.load(url,
-                undefined, // onLoad
-                undefined, // onProgress
-                (err) => console.error('Error loading texture:', url, err) // onError
-            ),
+            map: tex,
             side: THREE.DoubleSide,
-            transparent: false, // Opaque to prevent sorting artifacts
-            color: 0xffffff // White fallback if texture fails
+            transparent: true, // Needed for text transparency
+            opacity: 1, // Ensure visibility
+            color: 0xffffff
         });
     });
 
@@ -111,25 +132,43 @@ function initThree() {
     wireframeMesh.scale.setScalar(1.002); // Tiny bit larger
     sphere.add(wireframeMesh);
 
-    // Particles
-    const particlesGeometry = new THREE.BufferGeometry();
-    const particleCount = 700;
-    const posArray = new Float32Array(particleCount * 3);
+    // Floating Elements (Sprites instead of Points)
+    const floatingGroup = new THREE.Group();
+    const floatCount = 60; // Less count than particles because sprites are bigger
 
-    for (let i = 0; i < particleCount * 3; i++) {
-        // Random positions within a spread
-        posArray[i] = (Math.random() - 0.5) * 15;
+    // Create materials for sprites (sharing textures)
+    const spriteMaterials = allTextures.map(tex => new THREE.SpriteMaterial({
+        map: tex,
+        color: 0xffffff,
+        transparent: true,
+        opacity: 0.8
+    }));
+
+    for (let i = 0; i < floatCount; i++) {
+        // Pick random material
+        const mat = spriteMaterials[Math.floor(Math.random() * spriteMaterials.length)];
+        const sprite = new THREE.Sprite(mat);
+
+        // Random position spread outside the globe
+        const r = 3 + Math.random() * 3; // Radius 3 to 6
+        const theta = Math.random() * Math.PI * 2;
+        const phi = Math.acos(2 * Math.random() - 1);
+
+        sprite.position.set(
+            r * Math.sin(phi) * Math.cos(theta),
+            r * Math.sin(phi) * Math.sin(theta),
+            r * Math.cos(phi)
+        );
+
+        // Random scale relative
+        const scale = 0.3 + Math.random() * 0.3;
+        sprite.scale.set(scale, scale, 1);
+
+        floatingGroup.add(sprite);
     }
 
-    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-    const particlesMaterial = new THREE.PointsMaterial({
-        size: 0.03,
-        color: 0x888888, // Grey particles
-        transparent: true,
-        opacity: 0.6
-    });
-    const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
-    scene.add(particlesMesh);
+    scene.add(floatingGroup);
+
 
     // Light
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
@@ -217,16 +256,16 @@ function initThree() {
         const elapsedTime = clock.getElapsedTime();
 
         // Rotate main object
-        sphere.rotation.y += 0.002;
-        sphere.rotation.x += 0.001;
+        sphere.rotation.y += 0.0005;
+        sphere.rotation.x += 0.0002;
 
         // Interactive rotation based on mouse
         sphere.rotation.y += mouseX * 0.05;
         sphere.rotation.x += mouseY * 0.05;
 
-        // Particle movement
-        particlesMesh.rotation.y = -elapsedTime * 0.05;
-        particlesMesh.rotation.x = mouseY * 0.1;
+        // Floating Group smooth rotation
+        floatingGroup.rotation.y = -elapsedTime * 0.05;
+        floatingGroup.rotation.x = mouseY * 0.1;
 
         // Subtle floating effect for the whole group
         sphere.position.y = Math.sin(elapsedTime * 0.5) * 0.1;
