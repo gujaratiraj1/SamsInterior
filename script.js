@@ -19,7 +19,7 @@ window.addEventListener('load', () => {
 function initThree() {
     const canvas = document.querySelector('#webgl-canvas');
     const scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x0d0d0d, 0.002);
+    scene.fog = new THREE.FogExp2(0xf9f8f4, 0.002); // Light Fog
 
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     camera.position.z = 5;
@@ -31,6 +31,7 @@ function initThree() {
     });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setClearColor(0xf9f8f4, 1); // Set clear color to background
 
     // Geometry - Globe with Images in Triangles
     const sphere = new THREE.Group(); // Use a Group to hold both meshes
@@ -38,7 +39,6 @@ function initThree() {
 
     const baseGeometry = new THREE.IcosahedronGeometry(2, 1);
 
-    // Load Images
     // Load Images
     const textureLoader = new THREE.TextureLoader();
     const imageUrls = [
@@ -101,10 +101,10 @@ function initThree() {
 
     // Wireframe Overlay
     const wireframeMat = new THREE.MeshBasicMaterial({
-        color: 0xd4af37,
+        color: 0xb8860b, // Darker Gold for visibility on light bg
         wireframe: true,
         transparent: true,
-        opacity: 0.3
+        opacity: 0.4
     });
     // Use the SAME geometry as globeMesh so they explode together
     const wireframeMesh = new THREE.Mesh(geometry, wireframeMat);
@@ -123,16 +123,16 @@ function initThree() {
 
     particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
     const particlesMaterial = new THREE.PointsMaterial({
-        size: 0.02,
-        color: 0xffffff,
+        size: 0.03,
+        color: 0x888888, // Grey particles
         transparent: true,
-        opacity: 0.5
+        opacity: 0.6
     });
     const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
     scene.add(particlesMesh);
 
     // Light
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
     scene.add(ambientLight);
 
     // Mouse Interaction

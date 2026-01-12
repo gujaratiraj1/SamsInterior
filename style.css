@@ -1,14 +1,18 @@
 /* Reset & Base Styles */
 :root {
-    --bg-color: #0d0d0d;
-    --text-color: #f0f0f0;
+    --bg-color: #f9f8f4;
+    /* Warm premium light background */
+    --text-color: #2c3e50;
+    /* Dark slate for strong readability */
     --accent-color: #d4af37;
     /* Gold */
     --accent-hover: #b59226;
-    --glass-bg: rgba(255, 255, 255, 0.05);
-    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-bg: rgba(255, 255, 255, 0.8);
+    --glass-border: rgba(212, 175, 55, 0.3);
     --font-heading: 'Cormorant Garamond', serif;
     --font-body: 'Montserrat', sans-serif;
+    --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.08);
+    /* Luxurious soft shadow */
 }
 
 * {
@@ -33,7 +37,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #000;
+    background: var(--bg-color);
     z-index: 9999;
     display: flex;
     justify-content: center;
@@ -53,7 +57,7 @@ body {
 .progress-bar {
     width: 200px;
     height: 2px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.1);
     overflow: hidden;
 }
 
@@ -74,14 +78,15 @@ body {
     justify-content: space-between;
     align-items: center;
     z-index: 100;
-    mix-blend-mode: difference;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
 }
 
 .logo {
     font-family: var(--font-heading);
     font-size: 1.5rem;
     font-weight: 600;
-    color: #fff;
+    color: var(--text-color);
     letter-spacing: 2px;
     text-transform: uppercase;
 }
@@ -94,7 +99,7 @@ body {
 
 .nav-links a {
     text-decoration: none;
-    color: #fff;
+    color: var(--text-color);
     font-size: 0.9rem;
     font-weight: 300;
     text-transform: uppercase;
@@ -152,13 +157,13 @@ body {
     font-weight: 300;
     line-height: 1.1;
     margin-bottom: 20px;
-    color: #fff;
+    color: var(--text-color);
 }
 
 .hero-content p {
     font-size: 1.2rem;
     font-weight: 300;
-    color: #ccc;
+    color: #555;
     margin-bottom: 40px;
     letter-spacing: 1px;
 }
@@ -178,7 +183,7 @@ body {
 
 .btn-primary:hover {
     background: var(--accent-color);
-    color: #000;
+    color: #fff;
 }
 
 .scroll-indicator {
@@ -189,7 +194,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: #ccc;
+    color: var(--text-color);
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -199,7 +204,7 @@ body {
 .scroll-indicator .line {
     width: 1px;
     height: 40px;
-    background: rgba(255, 255, 255, 0.3);
+    background: var(--accent-color);
     margin-top: 10px;
 }
 
@@ -243,7 +248,7 @@ body {
     font-family: var(--font-heading);
     font-size: 3rem;
     font-weight: 300;
-    color: var(--accent-color);
+    color: var(--text-color);
 }
 
 .separator {
@@ -255,9 +260,10 @@ body {
 
 /* Glass Panel Style */
 .glass-panel {
-    background: rgba(0, 0, 0, 0.4);
+    background: var(--glass-bg);
     backdrop-filter: blur(10px);
-    border-top: 1px solid var(--glass-border);
+    border: 1px solid white;
+    box-shadow: var(--shadow-soft);
 }
 
 /* About Section */
@@ -270,7 +276,7 @@ body {
 
 .about-text p {
     margin-bottom: 20px;
-    color: #ccc;
+    color: #555;
     font-size: 1.1rem;
 }
 
@@ -279,7 +285,7 @@ body {
     font-size: 2rem;
     font-weight: 400;
     margin-bottom: 20px;
-    color: #fff;
+    color: var(--text-color);
 }
 
 .about-stats {
@@ -292,7 +298,7 @@ body {
     text-align: center;
     border: 1px solid var(--glass-border);
     padding: 40px;
-    background: var(--glass-bg);
+    background: rgba(255, 255, 255, 0.5);
 }
 
 .stat-number {
@@ -308,6 +314,7 @@ body {
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-top: 10px;
+    color: #666;
 }
 
 /* Portfolio Section */
@@ -321,6 +328,8 @@ body {
     position: relative;
     overflow: hidden;
     cursor: pointer;
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
 .portfolio-image {
@@ -340,7 +349,7 @@ body {
 .category-header h3 {
     font-family: var(--font-heading);
     font-size: 2rem;
-    color: #fff;
+    color: var(--text-color);
     font-weight: 300;
 }
 
@@ -355,7 +364,7 @@ body {
     left: 0;
     width: 100%;
     padding: 30px;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0));
     transform: translateY(100%);
     transition: transform 0.4s ease;
 }
@@ -367,7 +376,7 @@ body {
 .portfolio-info h4 {
     font-family: var(--font-heading);
     font-size: 1.5rem;
-    color: #fff;
+    color: var(--text-color);
 }
 
 .portfolio-info p {
@@ -386,13 +395,15 @@ body {
 
 .service-card {
     padding: 40px;
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    transition: background 0.3s;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: background 0.3s, transform 0.3s;
+    box-shadow: var(--shadow-soft);
 }
 
 .service-card:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: #fff;
+    transform: translateY(-5px);
 }
 
 .service-card h3 {
@@ -403,7 +414,7 @@ body {
 }
 
 .service-card p {
-    color: #bbb;
+    color: #666;
 }
 
 /* Contact */
@@ -425,8 +436,8 @@ body {
     padding: 15px;
     background: transparent;
     border: none;
-    border-bottom: 1px solid #444;
-    color: #fff;
+    border-bottom: 1px solid #ccc;
+    color: var(--text-color);
     font-family: var(--font-body);
     font-size: 1rem;
     transition: border-color 0.3s;
@@ -440,7 +451,7 @@ body {
 
 .contact-info p {
     margin-bottom: 15px;
-    color: #ccc;
+    color: #555;
     font-size: 1.1rem;
 }
 
@@ -448,7 +459,7 @@ body {
 footer {
     padding: 50px 0;
     text-align: center;
-    border-top: 1px solid #222;
+    border-top: 1px solid #eee;
 }
 
 .social-links {
@@ -456,7 +467,7 @@ footer {
 }
 
 .social-links a {
-    color: #fff;
+    color: var(--text-color);
     margin: 0 15px;
     text-decoration: none;
     text-transform: uppercase;
@@ -471,7 +482,7 @@ footer {
 
 footer p {
     font-size: 0.8rem;
-    color: #666;
+    color: #888;
 }
 
 /* Animations classes */
@@ -493,29 +504,36 @@ footer p {
     position: relative;
     padding: 20px;
     border: 1px solid var(--glass-border);
+    background: white;
+    box-shadow: var(--shadow-soft);
     transition: transform 0.3s;
 }
 
 .process-step:hover {
     transform: translateY(-10px);
-    background: var(--glass-bg);
 }
 
 .step-number {
     font-family: var(--font-heading);
     font-size: 4rem;
-    color: rgba(255, 255, 255, 0.1);
+    color: rgba(0, 0, 0, 0.05);
     position: absolute;
     top: -20px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: -1;
+    z-index: 1;
     transition: color 0.3s;
 }
 
 .process-step:hover .step-number {
     color: rgba(212, 175, 55, 0.2);
 }
+
+.step-content {
+    position: relative;
+    z-index: 2;
+}
+
 
 .step-content h3 {
     font-family: var(--font-heading);
@@ -525,7 +543,7 @@ footer p {
 }
 
 .step-content p {
-    color: #ccc;
+    color: #666;
     font-size: 0.9rem;
 }
 
@@ -537,9 +555,10 @@ footer p {
 }
 
 .testimonial-card {
-    background: var(--glass-bg);
+    background: #fff;
     padding: 40px;
-    border: 1px solid var(--glass-border);
+    border: none;
+    box-shadow: var(--shadow-soft);
     position: relative;
 }
 
@@ -551,18 +570,18 @@ footer p {
     position: absolute;
     top: -10px;
     left: 20px;
-    opacity: 0.3;
+    opacity: 0.2;
 }
 
 .quote {
-    color: #ddd;
+    color: #555;
     font-style: italic;
     margin-bottom: 30px;
     line-height: 1.8;
 }
 
 .client-info h4 {
-    color: #fff;
+    color: var(--text-color);
     font-family: var(--font-heading);
     font-size: 1.2rem;
 }
