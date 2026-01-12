@@ -115,10 +115,10 @@ function initThree() {
         geometry.addGroup(i * 3, 3, randomMaterialIndex);
     }
 
-    // Textured Mesh
+    // textured Mesh
     const globeMesh = new THREE.Mesh(geometry, globeMaterials);
     globeMesh.scale.setScalar(0.998); // Tiny bit smaller to avoid z-fighting
-    sphere.add(globeMesh);
+    // sphere.add(globeMesh); // Disabled globe mesh
 
     // Wireframe Overlay
     const wireframeMat = new THREE.MeshBasicMaterial({
@@ -130,7 +130,7 @@ function initThree() {
     // Use the SAME geometry as globeMesh so they explode together
     const wireframeMesh = new THREE.Mesh(geometry, wireframeMat);
     wireframeMesh.scale.setScalar(1.002); // Tiny bit larger
-    sphere.add(wireframeMesh);
+    // sphere.add(wireframeMesh); // Disabled wireframe mesh
 
     // Floating Elements (Sprites instead of Points)
     const floatingGroup = new THREE.Group();
