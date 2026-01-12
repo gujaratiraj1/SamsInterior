@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sam's Interiors | High-End Design Studio</title>
+    <meta name="description"
+        content="Sam's Interiors - Redefining luxury living with bespoke interior design profiles.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Loading Screen -->
+    <div id="loader">
+        <div class="loader-content">
+            <span class="loader-text">SAM'S INTERIORS</span>
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="images/logo.jpg" alt="Sam's Interiors Logo" style="height: 60px;">
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">Profile</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- 3D Background Canvas -->
+    <canvas id="webgl-canvas"></canvas>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="fade-in-up">Elegant. Timeless. Exquisite.</h1>
+            <p class="fade-in-up delay-1">Creating spaces that tell your unique story.</p>
+            <a href="#contact" class="btn-primary fade-in-up delay-2">Start Your Journey</a>
+        </div>
+        <div class="scroll-indicator">
+            <span>Explore</span>
+            <div class="line"></div>
+        </div>
+    </section>
+
+    <!-- About / Profile Section -->
+    <section id="about" class="section glass-panel">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Profile</h2>
+                <div class="separator"></div>
+            </div>
+            <div class="about-grid">
+                <div class="about-text">
+                    <h3>Visionary Design</h3>
+                    <p>At Sam's Interiors, we believe that luxury is in the details. Our profile consists of high-end
+                        residential and commercial projects that merge functionality with artistic expression.</p>
+                    <p>We don't just design rooms; we curate experiences tailored to the most discerning clients.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">10+</span>
+                        <span class="stat-label">Years of Excellence</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Premium Projects</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Design Journey</h2>
+                <div class="separator"></div>
+            </div>
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3>Discovery</h3>
+                        <p>We meet to understand your vision, lifestyle, and requirements.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3>Concept</h3>
+                        <p>Creating mood boards and initial layouts to visualize the direction.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3>Design</h3>
+                        <p>Detailed 3D renders and material selection for every corner.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <h3>Execution</h3>
+                        <p>Our skilled craftsmen bring the design to life with precision.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">05</div>
+                    <div class="step-content">
+                        <h3>Handover</h3>
+                        <p>The final reveal of your dream space, ready for you to live in.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section">
+        <div class="container">
+            <!-- Residential Header -->
+            <div class="section-header">
+                <h2>Residential Excellence</h2>
+                <div class="separator"></div>
+                <p style="text-align: center; color: #ccc; margin-top: 10px;">Curated spaces for modern living</p>
+            </div>
+
+            <!-- Kitchens -->
+            <div class="category-header">
+                <h3>Modular Kitchens</h3>
+            </div>
+            <div class="portfolio-gallery">
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background-image: url('images/Kitchen/IMG_5958.JPG');"></div>
+                    <div class="portfolio-info">
+                        <h4>Modern Kitchen</h4>
+                        <p>Sleek & Functional</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background-image: url('images/Kitchen/IMG_5959.JPG');"></div>
+                    <div class="portfolio-info">
+                        <h4>Island Layout</h4>
+                        <p>Culinary Workspace</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background-image: url('images/Kitchen/IMG_5960.JPG');"></div>
+                    <div class="portfolio-info">
+                        <h4>Contemporary Style</h4>
+                        <p>Open Concept</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background-image: url('images/Kitchen/IMG_5961.JPG');"></div>
+                    <div class="portfolio-info">
+                        <h4>Minimalist Design</h4>
+                        <p>Clean Lines</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background-image: url('images/Kitchen/IMG_5962.JPG');"></div>
+                    <div class="portfolio-info">
+                        <h4>Classic Utility</h4>
+                        <p>Storage Solutions</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background-image: url('images/Kitchen/IMG_5963.JPG');"></div>
+                    <div class="portfolio-info">
+                        <h4>Luxury Finishes</h4>
+                        <p>Premium Materials</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background-image: url('images/Kitchen/IMG_5997.JPG');"></div>
+                    <div class="portfolio-info">
+                        <h4>Compact Kitchen</h4>
+                        <p>Efficient Layout</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background-image: url('images/Kitchen/IMG_5998.JPG');"></div>
+                    <div class="portfolio-info">
+                        <h4>Chef's Corner</h4>
+                        <p>High-End Appliances</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wardrobes -->
+            <div class="category-header">
+                <h3>Premium Wardrobes</h3>
+            </div>
+            <div class="portfolio-gallery">
+                <!-- Select a diverse subset to avoid overcrowding, or show all if needed. Showing top 6-8 is best for layout, but user said 'use them', so I'll try to include most but maybe grid row limit. I'll include all. -->
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background-image: url('images/Wardrobe/IMG_5977.JPG');"></div>
+                    <div class="portfolio-info">
+                        <h4>Master Wardrobe</h4>
+                        <p>Walk-in Concept</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background-image: url('images/Wardrobe/IMG_5978.JPG');"></div>
+                    <div class="portfolio-info">
+                        <h4>Sliding Unit</h4>
+                        <p>Space Saving</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background-image: url('images/Wardrobe/IMG_5979.JPG');"></div>
+                    <div class="portfolio-info">
+                        <h4>Glass Finish</h4>
+                        <p>Reflective Elegance</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background-image: url('images/Wardrobe/IMG_5980.JPG');"></div>
+                    <div class="portfolio-info">
+                        <h4>Modern Closet</h4>
+                        <p>Organized Storage</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background-image: url('images/Wardrobe/IMG_5981.JPG');"></div>
+                    <div class="portfolio-info">
+                        <h4>Bedroom Suite</h4>
+                        <p>Integrated Design</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background-image: url('images/Wardrobe/IMG_5982.JPG');"></div>
+                    <div class="portfolio-info">
+                        <h4>Kids Wardrobe</h4>
+                        <p>Playful & Practical</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background-image: url('images/Wardrobe/IMG_5983.JPG');"></div>
+                    <div class="portfolio-info">
+                        <h4>Corner Unit</h4>
+                        <p>Maximized Space</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background-image: url('images/Wardrobe/IMG_5984.JPG');"></div>
+                    <div class="portfolio-info">
+                        <h4>Loft Storage</h4>
+                        <p>Floor to Ceiling</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background-image: url('images/Wardrobe/IMG_5987.JPG');"></div>
+                    <div class="portfolio-info">
+                        <h4>Dressing Area</h4>
+                        <p>Vanity Setup</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Living -->
+            <div class="category-header">
+                <h3>Living & Foyer</h3>
+            </div>
+            <div class="portfolio-gallery">
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background-image: url('images/Living/IMG_5989.JPG');"></div>
+                    <div class="portfolio-info">
+                        <h4>Grand Living</h4>
+                        <p>Main Hall</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background-image: url('images/Living/IMG_5990.JPG');"></div>
+                    <div class="portfolio-info">
+                        <h4>TV Unit</h4>
+                        <p>Entertainment Wall</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background-image: url('images/Living/IMG_5991.JPG');"></div>
+                    <div class="portfolio-info">
+                        <h4>Foyer Design</h4>
+                        <p>Welcoming Entrance</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pooja -->
+            <div class="category-header">
+                <h3>Pooja Units</h3>
+            </div>
+            <div class="portfolio-gallery">
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background-image: url('images/Pooja/IMG_5993.JPG');"></div>
+                    <div class="portfolio-info">
+                        <h4>Divine Space</h4>
+                        <p>Backlit Onyx</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background-image: url('images/Pooja/IMG_5994.JPG');"></div>
+                    <div class="portfolio-info">
+                        <h4>Traditional Carving</h4>
+                        <p>Teak Wood Finish</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background-image: url('images/Pooja/IMG_5995.JPG');"></div>
+                    <div class="portfolio-info">
+                        <h4>Modern Altar</h4>
+                        <p>Minimalist Devotion</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background-image: url('images/Pooja/IMG_5996.JPG');"></div>
+                    <div class="portfolio-info">
+                        <h4>Compact Pooja</h4>
+                        <p>Wall Mounted</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bar Units -->
+            <div class="category-header">
+                <h3>Bar Concepts</h3>
+            </div>
+            <div class="portfolio-gallery">
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background-image: url('images/bar%20units/IMG_5999.JPG');">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>Home Bar</h4>
+                        <p>Entertainment Zone</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background-image: url('images/bar%20units/IMG_6001.JPG');">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>Display Unit</h4>
+                        <p>Glass Cabinet</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Commercial Header -->
+            <div class="section-header" style="margin-top: 100px;">
+                <h2>Commercial Projects</h2>
+                <div class="separator"></div>
+                <p style="text-align: center; color: #ccc; margin-top: 10px;">Functional, aesthetic workspaces</p>
+            </div>
+
+            <div class="portfolio-gallery">
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background-image: url('images/Commercial/IMG_5964.JPG');">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>Corporate Office</h4>
+                        <p>Workstation Layout</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background-image: url('images/Commercial/IMG_5965.JPG');">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>Retail Space</h4>
+                        <p>Store Front</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background-image: url('images/Commercial/IMG_5966.JPG');">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>Executive Cabin</h4>
+                        <p>Premium Interiors</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background-image: url('images/Commercial/IMG_5967.JPG');">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>Boutique</h4>
+                        <p>Display Units</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background-image: url('images/Commercial/IMG_5970.JPG');">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>Meeting Room</h4>
+                        <p>Conference Setup</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background-image: url('images/Commercial/IMG_5971.JPG');">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>Tech Office</h4>
+                        <p>Open Plan</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background-image: url('images/Commercial/IMG_5969.JPG');">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>Lounge Area</h4>
+                        <p>Reception & Waiting</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background-image: url('images/Commercial/IMG_5972.JPG');">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>Co-working</h4>
+                        <p>Collaborative Space</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background-image: url('images/Commercial/IMG_5973.JPG');">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>Cafeteria</h4>
+                        <p>Breakout Zone</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Client Stories</h2>
+                <div class="separator"></div>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="quote">"Sam's Interiors transformed our chaotic living room into a sanctuary. The
+                        attention to detail is unmatched."</p>
+                    <div class="client-info">
+                        <h4>Priya Sharma</h4>
+                        <p>Bangalore, Residential</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="quote">"Professional, timely, and exquisite taste. They perfectly captured our brand
+                        identity for the new office."</p>
+                    <div class="client-info">
+                        <h4>Arjun Mehta</h4>
+                        <p>CEO, TechSpace</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="quote">"The 3D walkthrough made it so easy to visualize the end result. Highly recommended
+                        for luxury projects."</p>
+                    <div class="client-info">
+                        <h4>Sarah Jenkins</h4>
+                        <p>Hyderabad, Villa Owner</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section glass-panel">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Expertise</h2>
+                <div class="separator"></div>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>01. Residential</h3>
+                    <p>Bespoke interior solutions for luxury homes, focusing on comfort and opulence.</p>
+                </div>
+                <div class="service-card">
+                    <h3>02. Commercial</h3>
+                    <p>High-profile functional spaces for offices, retail, and hospitality.</p>
+                </div>
+                <div class="service-card">
+                    <h3>03. Consultation</h3>
+                    <p>Expert guidance on spatial planning, lighting, and material selection.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get in Touch</h2>
+                <div class="separator"></div>
+            </div>
+            <div class="contact-wrapper">
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Your Vision" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Send Message</button>
+                </form>
+                <div class="contact-info">
+                    <p>Ready to transform your space?</p>
+                    <p>Email: samsinterior2021@gmail.com</p>
+                    <p>Phone: +91-9003032732</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#">Instagram</a>
+                <a href="#">Pinterest</a>
+                <a href="#">LinkedIn</a>
+            </div>
+            <p>&copy; 2026 Sam's Interiors. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Three.js from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- GSAP for Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
