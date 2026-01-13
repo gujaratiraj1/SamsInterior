@@ -46,7 +46,7 @@ function initThree() {
         canvas.height = 512;
         const ctx = canvas.getContext('2d');
         ctx.fillStyle = color;
-        ctx.font = 'bold 80px "Cormorant Garamond", serif';
+        ctx.font = 'bold 100px "Cormorant Garamond", serif'; // Larger font
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.fillText(text, 256, 256);
@@ -78,8 +78,8 @@ function initThree() {
     const textKeywords = ['Luxury', 'Design', 'Elegant', 'Bespoke', 'Style', 'Art', 'Sam\'s'];
     const textTextures = textKeywords.map(word => createTextTexture(word));
 
-    // Combine all materials for the globe
-    const allTextures = [...imageUrls.map(url => textureLoader.load(url)), ...textTextures];
+    // Combine all materials for the globe (Weight text heavier)
+    const allTextures = [...imageUrls.map(url => textureLoader.load(url)), ...textTextures, ...textTextures];
 
     // We need MeshBasicMaterials for the globe faces
     const globeMaterials = allTextures.map(tex => {
@@ -134,7 +134,7 @@ function initThree() {
 
     // Floating Elements (Sprites instead of Points)
     const floatingGroup = new THREE.Group();
-    const floatCount = 60; // Less count than particles because sprites are bigger
+    const floatCount = 120; // Increased count
 
     // Create materials for sprites (sharing textures)
     const spriteMaterials = allTextures.map(tex => new THREE.SpriteMaterial({
