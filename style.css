@@ -423,11 +423,15 @@ body {
 
 /* Contact */
 .contact-wrapper {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 60px;
-    max-width: 900px;
+    display: flex;
+    flex-direction: column-reverse;
+    max-width: 700px;
     margin: 0 auto;
+    background: #fff;
+    padding: 50px;
+    box-shadow: var(--shadow-soft);
+    border-radius: 4px;
+    gap: 20px;
 }
 
 .form-group {
@@ -443,7 +447,7 @@ body {
     border-bottom: 1px solid #ccc;
     color: var(--text-color);
     font-family: var(--font-body);
-    font-size: 1rem;
+    font-size: 1.1rem;
     transition: border-color 0.3s;
 }
 
@@ -451,6 +455,11 @@ body {
 .form-group textarea:focus {
     outline: none;
     border-bottom-color: var(--accent-color);
+}
+
+.contact-info {
+    text-align: center;
+    margin-bottom: 40px;
 }
 
 .contact-info p {
